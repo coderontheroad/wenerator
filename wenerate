@@ -1,0 +1,27 @@
+<?php
+
+/* get required */
+require('core/templates/post-type.php');
+
+//command line print starter
+echo "************************************************\n";
+echo "\033[32moperation initiating...\033[0m \n";
+
+//get state
+$state = $argv[1];
+
+//check state
+if($state == "posttype") {
+	//if post type, then create post type
+	$singular = $argv[2];
+	$plural = $argv[3];
+	$text_domain = $argv[4];
+	
+	echo "\033[32m -> $singular post type creating...\033[0m \n";
+	
+	$posttype = new PostType($singular, $plural, $text_domain);
+}
+
+//command line print end
+echo "\033[32moperation finished!\033[0m \n";
+echo "************************************************\n";
